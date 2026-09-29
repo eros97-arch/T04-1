@@ -53,6 +53,105 @@
 			fill: none;
 			pointer-events: none;
 		}
+
+		/* Step 3 uses a higher-contrast palette and varied line weights. */
+		#scene-adjusted-figure {
+			margin: 0 0 1.5rem;
+		}
+
+		#scene-adjusted .sky {
+			fill: #d4edf4;
+		}
+
+		#scene-adjusted .grass {
+			fill: #78b85e;
+		}
+
+		#scene-adjusted .tree-trunk {
+			fill: #68452f;
+		}
+
+		#scene-adjusted .tree-canopy {
+			fill: #347747;
+			stroke: #245632;
+			stroke-width: 2;
+		}
+
+		#scene-adjusted .house-body {
+			fill: #f2ce8e;
+			stroke: #543c2a;
+			stroke-width: 4;
+		}
+
+		#scene-adjusted .roof {
+			fill: #a44132;
+			stroke: #602b25;
+			stroke-width: 5;
+		}
+
+		#scene-adjusted .chimney {
+			fill: #914536;
+			stroke: #602b25;
+			stroke-width: 3;
+		}
+
+		#scene-adjusted .window {
+			fill: #b8e2eb;
+			stroke: #344e58;
+			stroke-width: 4;
+		}
+
+		#scene-adjusted .window-detail {
+			stroke: #344e58;
+			stroke-width: 3;
+		}
+
+		#scene-adjusted .door {
+			fill: #70482f;
+			stroke: #493322;
+			stroke-width: 2;
+		}
+
+		#scene-adjusted .fence-pickets {
+			stroke: #fff6df;
+			stroke-width: 5;
+			stroke-dasharray: 8 5;
+		}
+
+		#scene-adjusted .fence-rail {
+			stroke: #fff6df;
+			stroke-width: 3;
+			stroke-dasharray: 10 5;
+		}
+
+		#scene-adjusted .stone-path {
+			fill: #aaa38f;
+			stroke: #625c4e;
+			stroke-width: 2.5;
+		}
+
+		#scene-adjusted .mailbox-post {
+			fill: #4c5260;
+		}
+
+		#scene-adjusted .mailbox {
+			fill: #cf5948;
+			stroke: #71362e;
+			stroke-width: 2;
+		}
+
+		#scene-adjusted .mailbox-roof {
+			fill: #f0c65f;
+			stroke: #71362e;
+			stroke-width: 2;
+		}
+
+		#scene-adjusted .smoke {
+			fill: #fff;
+			stroke: #80919a;
+			stroke-width: 1;
+			opacity: 0.65;
+		}
 	</style>
 </head>
 <body>
@@ -167,6 +266,68 @@
 					<line class="callout" x1="580" y1="482" x2="503" y2="466" />
 					<text class="label" x="584" y="486">text: x=400 y=465</text>
 				</g>
+			</svg>
+		</figure>
+
+		<figure id="scene-adjusted-figure">
+			<figcaption>Adjusted scene (Step 3)</figcaption>
+			<svg id="scene-adjusted" viewBox="0 0 800 500" role="img" aria-labelledby="scene-adjusted-title scene-adjusted-desc" xmlns="http://www.w3.org/2000/svg">
+				<title id="scene-adjusted-title">An adjusted house and garden</title>
+				<desc id="scene-adjusted-desc">The same house and garden with repositioned tree and house, a dashed fence, a stone walkway, a mailbox, and chimney smoke.</desc>
+
+				<rect class="sky" x="0" y="0" width="800" height="330" />
+				<rect class="grass" x="0" y="330" width="800" height="170" />
+
+				<circle cx="690" cy="88" r="43" fill="#ffd166" />
+
+				<ellipse cx="166" cy="105" rx="48" ry="24" fill="#fff" />
+				<ellipse cx="137" cy="112" rx="27" ry="20" fill="#fff" />
+				<ellipse cx="192" cy="114" rx="31" ry="19" fill="#fff" />
+
+				<!-- Shift the tree slightly left to open space around the house. -->
+				<g transform="translate(-8, 0)">
+					<rect class="tree-trunk" x="104" y="257" width="25" height="95" rx="5" />
+					<circle class="tree-canopy" cx="116" cy="222" r="54" />
+					<circle class="tree-canopy" cx="82" cy="245" r="34" />
+					<circle class="tree-canopy" cx="151" cy="246" r="36" />
+				</g>
+
+				<!-- Shift the house slightly right for a more balanced scene. -->
+				<g transform="translate(10, 0)">
+					<rect class="house-body" x="320" y="234" width="270" height="166" />
+					<polygon class="roof" points="294,240 455,117 616,240" />
+					<rect class="chimney" x="512" y="151" width="36" height="68" />
+
+					<rect class="window" x="350" y="273" width="61" height="57" />
+					<line class="window-detail" x1="380.5" y1="273" x2="380.5" y2="330" />
+					<line class="window-detail" x1="350" y1="301.5" x2="411" y2="301.5" />
+					<rect class="window" x="499" y="273" width="61" height="57" />
+					<line class="window-detail" x1="529.5" y1="273" x2="529.5" y2="330" />
+					<line class="window-detail" x1="499" y1="301.5" x2="560" y2="301.5" />
+
+					<rect class="door" x="429" y="314" width="54" height="86" />
+					<circle cx="470" cy="359" r="4" fill="#f6d36b" />
+				</g>
+
+				<polyline class="fence-pickets" points="0,405 0,370 20,370 20,405 40,405 40,370 60,370 60,405 80,405 80,370 100,370 100,405 120,405 120,370 140,370 140,405 160,405 160,370 180,370 180,405 200,405 200,370 220,370 220,405 240,405 240,370 260,370 260,405 280,405 280,370 300,370 300,405" fill="none" stroke-linejoin="round" />
+				<line class="fence-rail" x1="0" y1="383" x2="300" y2="383" />
+
+				<!-- Add a curved stone walk that meets the shifted doorway. -->
+				<path class="stone-path" d="M 447 400 C 445 418, 455 427, 441 444 C 425 465, 405 476, 396 500 L 451 500 C 459 478, 474 463, 480 446 C 488 424, 475 412, 485 400 Z" />
+
+				<!-- Place a small mailbox beside the new walkway. -->
+				<rect class="mailbox-post" x="390" y="436" width="5" height="50" />
+				<rect class="mailbox" x="377" y="418" width="30" height="20" rx="3" />
+				<polygon class="mailbox-roof" points="374,418 392,406 410,418" />
+
+				<!-- Add a faint, rising puff of smoke above the chimney. -->
+				<ellipse class="smoke" cx="535" cy="143" rx="8" ry="5" />
+				<ellipse class="smoke" cx="544" cy="128" rx="10" ry="7" />
+				<ellipse class="smoke" cx="535" cy="110" rx="12" ry="8" />
+
+				<path d="M 455 400 C 455 424, 414 433, 420 458 C 426 480, 480 476, 492 500 L 594 500 C 584 468, 527 455, 528 433 C 529 419, 549 410, 552 400 Z" fill="#d8bc8d" />
+
+				<text x="400" y="465" text-anchor="middle" fill="#294d36" font-size="22" font-weight="bold">A sunny day at home</text>
 			</svg>
 		</figure>
 	</main>
