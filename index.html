@@ -31,11 +31,35 @@
 			border-radius: 6px;
 			background: #dff3fa;
 		}
+
+		#scene-original,
+		#scene-annotated-figure {
+			margin: 0 0 1.5rem;
+		}
+
+		#scene-annotated #annotations {
+			font-size: 12px;
+			fill: #333;
+			stroke: #999;
+			stroke-width: 1;
+		}
+
+		#scene-annotated #annotations .label {
+			stroke: none;
+			pointer-events: none;
+		}
+
+		#scene-annotated #annotations .callout {
+			fill: none;
+			pointer-events: none;
+		}
 	</style>
 </head>
 <body>
 	<main>
 		<h1>T04 – SVG House &amp; Garden</h1>
+		<figure id="scene-original">
+			<figcaption>Original scene</figcaption>
 		<svg viewBox="0 0 800 500" role="img" aria-labelledby="scene-title scene-desc" xmlns="http://www.w3.org/2000/svg">
 			<title id="scene-title">A house and garden</title>
 			<desc id="scene-desc">A sunny garden with a cloud, a leafy tree, a small house, a fence, and a curved path.</desc>
@@ -75,6 +99,76 @@
 
 			<text x="400" y="465" text-anchor="middle" fill="#294d36" font-size="22" font-weight="bold">A sunny day at home</text>
 		</svg>
+		</figure>
+
+		<figure id="scene-annotated-figure">
+			<figcaption>Annotated scene (Step 2)</figcaption>
+			<svg id="scene-annotated" viewBox="0 0 800 500" role="img" aria-labelledby="scene-annotated-title scene-annotated-desc" xmlns="http://www.w3.org/2000/svg">
+				<title id="scene-annotated-title">A house and garden with shape annotations</title>
+				<desc id="scene-annotated-desc">The same sunny garden scene with coordinate labels identifying one example of each SVG shape type.</desc>
+
+				<rect x="0" y="0" width="800" height="330" fill="#dff3fa" />
+				<rect x="0" y="330" width="800" height="170" fill="#8fc978" />
+
+				<circle cx="690" cy="88" r="43" fill="#ffd166" />
+
+				<ellipse cx="166" cy="105" rx="48" ry="24" fill="#fff" />
+				<ellipse cx="137" cy="112" rx="27" ry="20" fill="#fff" />
+				<ellipse cx="192" cy="114" rx="31" ry="19" fill="#fff" />
+
+				<rect x="104" y="257" width="25" height="95" rx="5" fill="#805b3b" />
+				<circle cx="116" cy="222" r="54" fill="#4f9b58" />
+				<circle cx="82" cy="245" r="34" fill="#65ad61" />
+				<circle cx="151" cy="246" r="36" fill="#65ad61" />
+
+				<rect x="320" y="234" width="270" height="166" fill="#f4d6a0" stroke="#8b6547" stroke-width="3" />
+				<polygon points="294,240 455,117 616,240" fill="#b9533f" stroke="#803d34" stroke-width="4" />
+				<rect x="512" y="151" width="36" height="68" fill="#9a4e3e" stroke="#803d34" stroke-width="3" />
+
+				<rect x="350" y="273" width="61" height="57" fill="#a9dfeb" stroke="#76583f" stroke-width="4" />
+				<line x1="380.5" y1="273" x2="380.5" y2="330" stroke="#76583f" stroke-width="3" />
+				<line x1="350" y1="301.5" x2="411" y2="301.5" stroke="#76583f" stroke-width="3" />
+				<rect x="499" y="273" width="61" height="57" fill="#a9dfeb" stroke="#76583f" stroke-width="4" />
+				<line x1="529.5" y1="273" x2="529.5" y2="330" stroke="#76583f" stroke-width="3" />
+				<line x1="499" y1="301.5" x2="560" y2="301.5" stroke="#76583f" stroke-width="3" />
+
+				<rect x="429" y="314" width="54" height="86" fill="#805b3b" />
+				<circle cx="470" cy="359" r="4" fill="#f6d36b" />
+
+				<polyline points="0,405 0,370 20,370 20,405 40,405 40,370 60,370 60,405 80,405 80,370 100,370 100,405 120,405 120,370 140,370 140,405 160,405 160,370 180,370 180,405 200,405 200,370 220,370 220,405 240,405 240,370 260,370 260,405 280,405 280,370 300,370 300,405" fill="none" stroke="#f5ead2" stroke-width="5" stroke-linejoin="round" />
+				<line x1="0" y1="383" x2="300" y2="383" stroke="#f5ead2" stroke-width="4" />
+
+				<path d="M 455 400 C 455 424, 414 433, 420 458 C 426 480, 480 476, 492 500 L 594 500 C 584 468, 527 455, 528 433 C 529 419, 549 410, 552 400 Z" fill="#d8bc8d" />
+
+				<text x="400" y="465" text-anchor="middle" fill="#294d36" font-size="22" font-weight="bold">A sunny day at home</text>
+
+				<g id="annotations">
+					<line class="callout" x1="94" y1="63" x2="134" y2="88" />
+					<text class="label" x="22" y="61">ellipse: cx=166 cy=105 rx=48 ry=24</text>
+
+					<line class="callout" x1="690" y1="40" x2="690" y2="45" />
+					<text class="label" x="615" y="32">circle: cx=690 cy=88 r=43</text>
+
+					<line class="callout" x1="320" y1="258" x2="332" y2="234" />
+					<text class="label" x="324" y="252">rect: x=320 y=234 width=270 height=166</text>
+
+					<line class="callout" x1="145" y1="426" x2="145" y2="383" />
+					<text class="label" x="8" y="429">line: x1=0 y1=383 → x2=300 y2=383</text>
+
+					<line class="callout" x1="178" y1="446" x2="180" y2="405" />
+					<text class="label" x="8" y="449">polyline: 0,405 0,370 20,370 ...</text>
+
+					<line class="callout" x1="364" y1="140" x2="385" y2="170" />
+					<text class="label" x="295" y="137">polygon: 294,240 455,117 616,240</text>
+
+					<line class="callout" x1="570" y1="435" x2="550" y2="452" />
+					<text class="label" x="565" y="432">path: M455,400 C455,424 ... L594,500</text>
+
+					<line class="callout" x1="580" y1="482" x2="503" y2="466" />
+					<text class="label" x="584" y="486">text: x=400 y=465</text>
+				</g>
+			</svg>
+		</figure>
 	</main>
 </body>
 </html>
